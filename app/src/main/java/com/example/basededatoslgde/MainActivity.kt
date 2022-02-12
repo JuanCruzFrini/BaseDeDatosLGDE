@@ -1,6 +1,7 @@
 package com.example.basededatoslgde
 
 import android.content.ContentValues
+import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
 import android.widget.Toast
@@ -8,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.basededatoslgde.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
-    private val BDD_NAME = "administracion"
+    companion object {val BDD_NAME = "administracion"}
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         binding.btneliminar.setOnClickListener { eliminar() }
 
         binding.btnmodificar.setOnClickListener { modificar() }
+
+        binding.btnrecycler.setOnClickListener { startActivity(Intent(this, RecyclerBusqueda::class.java)) }
     }
 
     //altas en BDD
